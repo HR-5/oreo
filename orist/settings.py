@@ -26,7 +26,7 @@ SECRET_KEY = '5s!3!i3fzk@v1stushb(1aga1!=o1!g015rh1elm95baq#1s*g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['orientation20.herokuapp.com', 'www.orientation20.herokuapp.com']
 
 
 # Application definition
