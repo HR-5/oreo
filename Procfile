@@ -1,0 +1,1 @@
+web: gunicorn orist.wsgi --log-file -
