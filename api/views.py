@@ -8,7 +8,8 @@ def get_schedule(request, schedule_id):
     schdict = {
         'id': sch.id,
         'name': sch.name,
-        'time': sch.time,
+        'from': sch.stime,
+        'to': sch.etime,
         'desc': sch.description,
         'loc': sch.location
     }
