@@ -1,5 +1,3 @@
-*/migrations/*
-!*/migrations/__init__.py
 .idea/
 api/__pycache__/
 orist/__pycache__/
