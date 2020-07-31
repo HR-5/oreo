@@ -7,7 +7,7 @@ def create_img_name():
     places = Place.objects.all()
     for place in places:
         name = place.name.lower().split(' ')
-        imgname = '-'.join(name)
+        imgname = '_'.join(name)
         place.imgname = imgname
         place.save()
 
