@@ -19,24 +19,16 @@ def get_places():
     department = []
     sports = []
     for place in places:
+        p_dict = {
+            'name': place.name,
+            'locurl': place.url,
+            'imgurl': place.imgname
+        }
         if place.category == 'S':
-            p_dict = {
-                'name': place.name,
-                'locurl': place.url,
-                'imgurl': place.imgname
-            }
             sports.append(p_dict)
         elif place.category == 'D':
-            p_dict = {
-                'name': place.name,
-                'locurl': place.url
-            }
             department.append(p_dict)
         elif place.category == 'F':
-            p_dict = {
-                'name': place.name,
-                'locurl': place.url
-            }
             food_stalls.append(p_dict)
 
     places = [food_stalls, department, sports]
