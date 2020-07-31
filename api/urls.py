@@ -6,5 +6,5 @@ from . import views
 app_name = 'api'
 
 urlpatterns = [
-    url(r'^getschedule/$', views.get_schedule, name='getschedule'),
+    url(r'^getdetails/$', views.get_details, name='get_details'),
 ]

@@ -3,7 +3,47 @@ from .models import *
 from django.http import JsonResponse
 
 
-def get_schedule(request):
+def create_img_name():
+    places = Place.objects.all()
+    for place in places:
+        name = place.name.lower().split(' ')
+        imgname = '-'.join(name)
+        place.imgname = imgname
+        place.save()
+
+
+def get_places():
+    create_img_name()
+    places = Place.objects.all()
+    food_stalls = []
+    department = []
+    sports = []
+    for place in places:
+        if place.category == 'S':
+            p_dict = {
+                'name': place.name,
+                'locurl': place.url,
+                'imgurl': place.imgname
+            }
+            sports.append(p_dict)
+        elif place.category == 'D':
+            p_dict = {
+                'name': place.name,
+                'locurl': place.url
+            }
+            department.append(p_dict)
+        elif place.category == 'F':
+            p_dict = {
+                'name': place.name,
+                'locurl': place.url
+            }
+            food_stalls.append(p_dict)
+
+    places = [food_stalls, department, sports]
+    return places
+
+
+def get_schedule():
     days = DaySchedule.objects.all()
     schedule = []
     for day in days:
@@ -23,12 +63,21 @@ def get_schedule(request):
             events.append(event_dict)
         day_dict = {
             'date': date.strftime("%m/%d/%Y"),
-            'events' : events
+            'events': events
         }
         schedule.append(day_dict)
 
-    sch_dict = {
-        'Time': datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
-        'schedule': schedule
+    return schedule
+
+
+def get_details(request):
+    places = get_places()
+    schedule = get_schedule()
+    details_dict = {
+        'time': datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
+        'schedule': schedule,
+        'food': places[0],
+        'department': places[1],
+        'sports': places[2],
     }
-    return JsonResponse(sch_dict)
+    return JsonResponse(details_dict)
