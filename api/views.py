@@ -24,7 +24,7 @@ def get_places():
             'name': place.name,
             'locurl': place.url,
             'imgurl': place.imgname,
-            'desc': place.description
+            'description': place.description
         }
         if place.category == 'S':
             sports.append(p_dict)
