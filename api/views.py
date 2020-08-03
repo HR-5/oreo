@@ -22,7 +22,8 @@ def get_places():
         p_dict = {
             'name': place.name,
             'locurl': place.url,
-            'imgurl': place.imgname
+            'imgurl': place.imgname,
+            'desc': place.description
         }
         if place.category == 'S':
             sports.append(p_dict)
@@ -50,11 +51,12 @@ def get_schedule():
                 'etime': event.etime.strftime("%H:%M"),
                 'description': event.description,
                 'location': event.location.name,
-                'locurl': event.location.url
+                'locurl': event.location.url,
+                'imgname': event.location.imgname
             }
             events.append(event_dict)
         day_dict = {
-            'date': date.strftime("%m/%d/%Y"),
+            'date': date.strftime("%d/%m/%Y"),
             'events': events
         }
         schedule.append(day_dict)
