@@ -9,6 +9,7 @@ def create_img_name():
         name = place.name.lower().split(' ')
         imgname = '_'.join(name)
         place.imgname = imgname
+        place.description = "Description"
         place.save()
 
 
@@ -23,7 +24,7 @@ def get_places():
             'name': place.name,
             'locurl': place.url,
             'imgurl': place.imgname,
-            'desc': place.name
+            'desc': place.description
         }
         if place.category == 'S':
             sports.append(p_dict)
