@@ -23,7 +23,7 @@ class Event(models.Model):
     name = models.CharField(null=True, blank=False, max_length=50)
     stime = models.TimeField(null=True, blank=False, default=datetime.now())
     etime = models.TimeField(null=True, blank=False, default=datetime.now())
-    description = models.TextField(null=True, blank=False, max_length=200)
+    description = models.TextField(null=True, blank=False, max_length=1000)
     location = models.ForeignKey(Place, related_name='loc', blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
