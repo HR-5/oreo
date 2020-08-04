@@ -5,7 +5,7 @@ from datetime import datetime
 class Place(models.Model):
     name = models.CharField(null=True, blank=False, max_length=50)
     url = models.CharField(null=True, blank=False, max_length=50)
-    description = models.TextField(null=False, blank=False, max_length=200, default="Description")
+    description = models.TextField(null=False, blank=False, max_length=10000, default="Description")
     choices = {
         ('D', 'Department'),
         ('F', 'Food'),
