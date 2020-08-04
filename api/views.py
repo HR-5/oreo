@@ -9,7 +9,6 @@ def create_img_name():
         name = place.name.lower().split(' ')
         imgname = '_'.join(name)
         place.imgname = imgname
-        place.description = "Description"
         place.save()
 
 
