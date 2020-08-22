@@ -56,7 +56,7 @@ def get_schedule():
             }
             events.append(event_dict)
         day_dict = {
-            'date': date.strftime("%d/%m/%Y"),
+            'date': date.strftime("%d %B %Y"),
             'events': events
         }
         schedule.append(day_dict)
@@ -68,7 +68,7 @@ def get_details(request):
     places = get_places()
     schedule = get_schedule()
     details_dict = {
-        'time': datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
+        'time': datetime.now().strftime("%m %B %Y, %H:%M:%S"),
         'schedule': schedule,
         'food': places[0],
         'department': places[1],
