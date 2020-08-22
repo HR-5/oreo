@@ -13,7 +13,7 @@ class Place(models.Model):
         ('A', 'Auditorium')
     }
     category = models.CharField(null=True, blank=False, choices=choices, max_length=50)
-    imgname = models.CharField(null=True, blank=True, max_length=50)
+    imgname = models.CharField(null=True, blank=True, max_length=1000)
 
     def __str__(self):
         return self.name + " | " + self.get_category_display()
