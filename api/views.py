@@ -13,7 +13,7 @@ def create_img_name():
 
 
 def get_places():
-    create_img_name()
+    # create_img_name()
     places = Place.objects.all()
     food_stalls = []
     department = []
