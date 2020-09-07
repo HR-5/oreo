@@ -14,6 +14,8 @@ class Place(models.Model):
     }
     category = models.CharField(null=True, blank=False, choices=choices, max_length=50)
     imgname = models.CharField(null=True, blank=True, max_length=1000)
+    latitude = models.CharField(null=True, blank=True, max_length=50)
+    longitude = models.CharField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.name + " | " + self.get_category_display()

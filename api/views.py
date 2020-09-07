@@ -23,7 +23,9 @@ def get_places():
             'name': place.name,
             'locurl': place.url,
             'imgurl': place.imgname,
-            'description': place.description
+            'description': place.description,
+            'latitude': place.latitude,
+            'longitude': place.longitude
         }
         if place.category == 'S':
             sports.append(p_dict)
@@ -52,7 +54,9 @@ def get_schedule():
                 'description': event.description,
                 'location': event.location.name,
                 'locurl': event.location.url,
-                'imgname': event.location.imgname
+                'imgname': event.location.imgname,
+                'latitude': event.location.latitude,
+                'longitude': event.location.longitude,
             }
             events.append(event_dict)
         day_dict = {
